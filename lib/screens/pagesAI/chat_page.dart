@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:ai_assistant_app/api/chat_service.dart';
-
 import 'package:ai_assistant_app/widgets/CustomTextInput.dart';
 import 'package:flutter/material.dart';
-
 import 'package:lottie/lottie.dart';
 
 class ChatPage extends StatefulWidget {
@@ -18,8 +16,7 @@ class _ChatPageState extends State<ChatPage> {
   TextEditingController controller = TextEditingController();
   double heightContainer = 100;
   double heightRobot = 120;
-  double postionYrobot = 0;
-  double heightSpace =180;
+  double heightSpace = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +38,12 @@ class _ChatPageState extends State<ChatPage> {
         child: Column(
           children: [
             AnimatedContainer(
-              margin: EdgeInsets.only(top: 15),
-                transform: Matrix4.translationValues(
-                  0,
-                  postionYrobot,
-                  0,
-                ),
+                margin: EdgeInsets.only(top: 15),
                 height: heightRobot,
-                duration: Duration(seconds: 2),
+                duration: Duration(seconds: 1),
                 child: Lottie.asset('assets/images/chat_robot.json',
-                    width: 120, height: 120)),
+                    width: 120, height: 120),
+                    ),
             const SizedBox(
               height: 25,
             ),
@@ -62,7 +55,6 @@ class _ChatPageState extends State<ChatPage> {
                   fontWeight: FontWeight.w600),
             ),
             AnimatedContainer(
-              
               duration: Duration(seconds: 1),
               height: heightContainer,
               curve: Curves.decelerate,
@@ -140,14 +132,14 @@ class _ChatPageState extends State<ChatPage> {
                   if (controller.text == '') {
                     heightContainer = 100;
                     heightRobot = 120;
-                    postionYrobot = 0;
+
                     heightSpace = 180;
                     setState(() {});
                   } else {
                     heightContainer = 300;
                     heightRobot = 0;
-                    postionYrobot = 900;
-                    heightSpace = 50 ;
+
+                    heightSpace = 50;
                     setState(() {});
                   }
                 },

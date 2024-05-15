@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:ai_assistant_app/api/gemini_APi.dart';
+import 'package:ai_assistant_app/screens/pagesAI/chat_page.dart';
+import 'package:ai_assistant_app/screens/pagesAI/translate_page.dart';
 import 'package:ai_assistant_app/widgets/ai_type_card.dart';
 import 'package:flutter/material.dart';
 
@@ -35,11 +35,12 @@ class AiChoosePage extends StatelessWidget {
         ],
       ),
       body: Column(
-        children: const [
+        children: [
           // ignore: missing_required_param
           AiTypeCard(
             imgSrc: 'assets/images/ai_hand_waving.json',
             nameAi: 'AI ChatBot',
+            page: ChatPage(),
           ),
           AiTypeCard(
             imgSrc: 'assets/images/ai_play.json',
@@ -47,13 +48,16 @@ class AiChoosePage extends StatelessWidget {
             widthImg: 145,
             heightImg: 120,
             direction: TextDirection.rtl,
+            page: ChatPage(),
           ),
           // ignore: missing_required_param
           AiTypeCard(
               imgSrc: 'assets/images/Animation - 1715413486579.json',
               nameAi: 'Language\nTranslator',
               widthImg: 150,
-              heightImg: 180),
+              heightImg: 180,
+              page: TransPage(),
+              ),
         ],
       ),
     );

@@ -1,6 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:ai_assistant_app/screens/pagesAI/chat_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -10,11 +8,13 @@ class AiTypeCard extends StatelessWidget {
   final double? widthImg;
   final double? heightImg;
   final TextDirection? direction;
+  final Widget page;
 
   const AiTypeCard({
     super.key,
     required this.nameAi,
     required this.imgSrc,
+    required this.page,
     @required this.widthImg,
     @required this.heightImg,
     @required this.direction,
@@ -27,7 +27,7 @@ class AiTypeCard extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ChatPage(),
+              builder: (context) => page,
             ));
       },
       child: Container(

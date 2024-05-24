@@ -35,7 +35,7 @@ class AiChoosePage extends StatelessWidget {
         // ],
       ),
       body: Column(
-        children: [
+        children:const [
           
           AiTypeCard(
             imgSrc: 'assets/images/ai_hand_waving.json',

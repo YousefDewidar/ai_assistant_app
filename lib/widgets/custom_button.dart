@@ -1,27 +1,17 @@
-
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  String title;
-  Widget namePage;
-  CustomButton({super.key, required this.title,required this.namePage});
+  final String title;
+  final void Function()? onPressed;
+
+  const CustomButton({super.key, required this.title, required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 150,
       height: 47,
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return namePage;
-              },
-            ),
-          );
-        },
+        onPressed: onPressed,
         style: ButtonStyle(
           enableFeedback: true,
           foregroundColor: const MaterialStatePropertyAll(Colors.white),
@@ -29,10 +19,12 @@ class CustomButton extends StatelessWidget {
               const MaterialStatePropertyAll(Colors.deepPurpleAccent),
           elevation: MaterialStateProperty.all(0),
         ),
-        child: Text(title,
-            style: const TextStyle(
-              fontSize: 18,
-            )),
+        child: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 18,
+          ),
+        ),
       ),
     );
   }

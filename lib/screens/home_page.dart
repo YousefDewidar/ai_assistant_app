@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:ai_assistant_app/screens/ai_assistant_page.dart';
-import 'package:ai_assistant_app/widgets/custombutton.dart';
+import 'package:ai_assistant_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -49,7 +48,7 @@ class HomePage extends StatelessWidget {
         ),
         const Spacer(),
 
-        Text(
+        const Text(
           'Ask me Anything',
           style: TextStyle(
               fontSize: 20,
@@ -57,7 +56,7 @@ class HomePage extends StatelessWidget {
               fontWeight: FontWeight.w900),
         ),
 
-        Padding(
+        const Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50.0),
           child: Text(
             textAlign: TextAlign.center,
@@ -71,7 +70,19 @@ class HomePage extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        CustomButton(title: 'Go', namePage: AiChoosePage()),
+        CustomButton(
+          title: 'Go',
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const AiChoosePage();
+                },
+              ),
+            );
+          },
+        ),
         const Spacer(),
       ]),
     );

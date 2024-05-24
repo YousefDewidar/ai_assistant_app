@@ -23,34 +23,26 @@ class AiChoosePage extends StatelessWidget {
               fontWeight: FontWeight.w700),
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-              onPressed: () {
+        // actions: [
+        //   IconButton(
+        //       onPressed: () {
             
-              },
-              icon: Icon(
-                Icons.dark_mode_outlined,
-                color: Colors.deepPurple,
-              ))
-        ],
+        //       },
+        //       icon: Icon(
+        //         Icons.dark_mode_outlined,
+        //         color: Colors.deepPurple,
+        //       ))
+        // ],
       ),
       body: Column(
         children: [
-          // ignore: missing_required_param
+          
           AiTypeCard(
             imgSrc: 'assets/images/ai_hand_waving.json',
             nameAi: 'AI ChatBot',
             page: ChatPage(),
           ),
-          AiTypeCard(
-            imgSrc: 'assets/images/ai_play.json',
-            nameAi: 'AI Image Creator',
-            widthImg: 145,
-            heightImg: 120,
-            direction: TextDirection.rtl,
-            page: ChatPage(),
-          ),
-          // ignore: missing_required_param
+          
           AiTypeCard(
               imgSrc: 'assets/images/Animation - 1715413486579.json',
               nameAi: 'Language\nTranslator',

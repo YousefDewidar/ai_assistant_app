@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:ai_assistant_app/screens/sec_page.dart';
+import 'package:ai_assistant_app/screens/ai_assistant_page.dart';
 import 'package:ai_assistant_app/widgets/custombutton.dart';
-import 'package:ai_assistant_app/widgets/dots_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -72,15 +70,8 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-
         const Spacer(),
-
-        // two dots
-          DotsWidget(numPage: 0,),
-
-        const Spacer(),
-        // Button --> Next
-        CustomButton(title:'Next',namePage: SecPage(),),
+        CustomButton(title: 'Go', namePage: AiChoosePage()),
         const Spacer(),
       ]),
     );

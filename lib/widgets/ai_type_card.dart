@@ -15,9 +15,9 @@ class AiTypeCard extends StatelessWidget {
     required this.nameAi,
     required this.imgSrc,
     required this.page,
-    @required this.widthImg,
-    @required this.heightImg,
-    @required this.direction,
+    this.widthImg,
+    this.heightImg,
+    this.direction,
   });
 
   @override

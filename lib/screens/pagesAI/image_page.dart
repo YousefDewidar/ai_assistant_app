@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ai_assistant_app/api/getImgUrl.dart';
 import 'package:ai_assistant_app/widgets/CustomTextInput.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -71,7 +70,6 @@ class GenrateImgPage extends StatelessWidget {
               height: 47,
               child: ElevatedButton(
                 onPressed: () {
-                  getImgUrl();
                 },
                 style: ButtonStyle(
                   enableFeedback: true,

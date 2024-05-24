@@ -14,6 +14,8 @@ class Api {
     // response
     final response = await model.generateContent(content);
     return response.text!;
+
+    
   }
 
 }

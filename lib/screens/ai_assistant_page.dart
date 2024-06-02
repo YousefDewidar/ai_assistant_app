@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:ai_assistant_app/screens/pagesAI/chat_page.dart';
-import 'package:ai_assistant_app/screens/pagesAI/translate_page.dart';
+import 'package:ai_assistant_app/screens/chat_page.dart';
+import 'package:ai_assistant_app/screens/translate/translate_page.dart';
 import 'package:ai_assistant_app/widgets/ai_type_card.dart';
 import 'package:flutter/material.dart';
 

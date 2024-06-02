@@ -1,10 +1,11 @@
+import 'package:ai_assistant_app/screens/translate/widgets/custom_divider.dart';
+import 'package:ai_assistant_app/screens/translate/widgets/custom_input.dart';
+import 'package:ai_assistant_app/screens/translate/widgets/words_and_icon.dart';
 import 'package:ai_assistant_app/widgets/custom_lang_butt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:translator/translator.dart';
 
-// ignore: must_be_immutable
 class TransPage extends StatefulWidget {
   const TransPage({super.key});
 
@@ -20,6 +21,7 @@ class _TransPageState extends State<TransPage> {
   String wordsTranslated = '';
   String lang1 = 'English';
   String lang2 = 'Arabic';
+  final List langName = [];
 
   final Map<String, String> languageCodes = {
     'English': 'en',
@@ -42,8 +44,6 @@ class _TransPageState extends State<TransPage> {
     'Turkish': 'tr',
     'Polish': 'pl',
   };
-
-  final List langName = [];
 
   void getKeyFromMap() {
     for (String key in languageCodes.keys) {
@@ -99,10 +99,22 @@ class _TransPageState extends State<TransPage> {
     setState(() {});
   }
 
+  void translateTextField(String value) {
+    if (value != '') {
+      translateFromTo(
+          input: transController.text,
+          lnFrom: languageCodes[lang1]!,
+          lnTo: languageCodes[lang2]!);
+      isVisible = true;
+      setState(() {});
+    } else {
+      isVisible = false;
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // final screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
@@ -132,91 +144,20 @@ class _TransPageState extends State<TransPage> {
                       bottomRight: Radius.circular(20))),
               child: Column(
                 children: [
-                  TextField(
-                    controller: transController,
-                    onChanged: (value) {
-                      if (value != '') {
-                        translateFromTo(
-                            input: transController.text,
-                            lnFrom: languageCodes[lang1]!,
-                            lnTo: languageCodes[lang2]!);
-                        isVisible = true;
-                        setState(() {});
-                      } else {
-                        isVisible = false;
-                        setState(() {});
-                      }
-                    },
-                    autocorrect: true,
-                    style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.w400),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: lang1 == 'Arabic' ? 'ادخل النص' : 'Enter text',
-                      hintTextDirection: lang1 == 'Arabic'
-                          ? TextDirection.rtl
-                          : TextDirection.ltr,
-                      hintStyle: const TextStyle(
-                          fontSize: 30, fontWeight: FontWeight.w400),
-                      contentPadding: const EdgeInsets.all(18),
-                    ),
-                    textDirection: lang1 == 'Arabic'
-                        ? TextDirection.rtl
-                        : TextDirection.ltr,
+                  CustomTextFieldForTranslate(
+                    transController: transController,
+                    lang1: lang1,
+                    translateTextField: translateTextField,
                   ),
                   Visibility(
                     visible: isVisible,
                     child: Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            // line
-                            const SizedBox(
-                              width: 300,
-                              child: Divider(
-                                indent: 70,
-                                endIndent: 10,
-                              ),
-                            ),
-                            // icon
-                            IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.arrow_circle_right_outlined,
-                                  size: 40,
-                                  color: Colors.deepPurpleAccent,
-                                ))
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Row(
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  wordsTranslated,
-                                  style: const TextStyle(
-                                    color: Color.fromARGB(255, 84, 26, 183),
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 3),
-                                child: IconButton(
-                                    onPressed: () {
-                                      copyToClipboard(text: wordsTranslated);
-                                    },
-                                    icon: const FaIcon(
-                                      FontAwesomeIcons.copy,
-                                      color: Color.fromARGB(255, 84, 26, 183),
-                                    )),
-                              )
-                            ],
-                          ),
-                        ),
+                        const CustomDivider(),
+                        WordsAndIconAfterTranslate(
+                          copyToClipboard: copyToClipboard,
+                          wordsTranslated: wordsTranslated,
+                        )
                       ],
                     ),
                   ),
@@ -225,7 +166,7 @@ class _TransPageState extends State<TransPage> {
             ),
           ),
 
-          // buttons
+          // Buttons
           Container(
             height: 140,
             color: Colors.grey[200],

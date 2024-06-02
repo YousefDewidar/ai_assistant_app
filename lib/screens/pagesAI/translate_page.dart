@@ -181,10 +181,7 @@ class _TransPageState extends State<TransPage> {
                             ),
                             // icon
                             IconButton(
-                                onPressed: () {
-                                  // i = 0;
-                                  // setState(() {});
-                                },
+                                onPressed: () {},
                                 icon: const Icon(
                                   Icons.arrow_circle_right_outlined,
                                   size: 40,
@@ -192,17 +189,18 @@ class _TransPageState extends State<TransPage> {
                                 ))
                           ],
                         ),
-                        Container(
-                          padding: const EdgeInsets.all(18),
-                          height: 100,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Row(
                             children: [
-                              Text(
-                                wordsTranslated,
-                                style: const TextStyle(
-                                  color: Color.fromARGB(255, 84, 26, 183),
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w400,
+                              Flexible(
+                                child: Text(
+                                  wordsTranslated,
+                                  style: const TextStyle(
+                                    color: Color.fromARGB(255, 84, 26, 183),
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ),
                               Padding(

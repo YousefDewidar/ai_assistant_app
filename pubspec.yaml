@@ -17,6 +17,7 @@ dependencies:
   dart_openai: ^5.1.0
   font_awesome_flutter: ^10.7.0
   translator: ^1.0.0
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:

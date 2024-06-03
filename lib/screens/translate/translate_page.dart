@@ -1,6 +1,7 @@
 import 'package:ai_assistant_app/screens/translate/widgets/custom_divider.dart';
 import 'package:ai_assistant_app/screens/translate/widgets/custom_input.dart';
 import 'package:ai_assistant_app/screens/translate/widgets/words_and_icon.dart';
+import 'package:ai_assistant_app/widgets/custom_app_bar.dart';
 import 'package:ai_assistant_app/widgets/custom_lang_butt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -117,19 +118,7 @@ class _TransPageState extends State<TransPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: const Text(
-          'Translate',
-          style: TextStyle(
-              color: Colors.deepPurple,
-              fontSize: 20,
-              fontWeight: FontWeight.w700),
-        ),
-        centerTitle: true,
-        elevation: .9,
-        shadowColor: Colors.grey,
-        backgroundColor: Colors.white,
-      ),
+      appBar: customAppBar(title: 'Translate'),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -1,4 +1,4 @@
-import 'package:ai_assistant_app/screens/ai_assistant_page.dart';
+import 'package:ai_assistant_app/screens/ai_choose_page.dart';
 import 'package:ai_assistant_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
               width: 8,
             ),
             Text(
-              'AI chat',
+              'AI Assistant',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
         ),
 
         const Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50.0),
+          padding: EdgeInsets.symmetric(horizontal: 50.0),
           child: Text(
             textAlign: TextAlign.center,
             'I can be your Best Friend & You can ask me anything & I will help you!',
@@ -73,7 +73,7 @@ class HomePage extends StatelessWidget {
         CustomButton(
           title: 'Go',
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) {

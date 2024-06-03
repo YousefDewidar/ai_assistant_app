@@ -9,6 +9,37 @@ class SuggestionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+          Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(flex: 2),
+                SuggestionsCard(
+                  controller: controller,
+                  width: 120,
+                  suggestion: 'Health & food',
+                ),
+                const Spacer(),
+                SuggestionsCard(
+                  controller: controller,
+                  width: 70,
+                  suggestion: 'Weather',
+                ),
+                const Spacer(),
+                SuggestionsCard(
+                  controller: controller,
+                  width: 90,
+                  suggestion: 'The prices',
+                ),
+                const Spacer(),
+                SuggestionsCard(
+                  controller: controller,
+                  width: 55,
+                  suggestion: 'News',
+                ),
+                const Spacer(flex: 2),
+              ],
+            ),
+        
         const SizedBox(
           height: 10,
         ),

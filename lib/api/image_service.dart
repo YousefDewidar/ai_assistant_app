@@ -16,11 +16,11 @@ class ImageService extends StatelessWidget {
         ),
       );
     } else {
-      return FutureBuilder<String>(
-        future: ImageApi().generateImage(question!),
+      return FutureBuilder(
+        future: ImageApi().generateImage(imageName: question!),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Image.network(snapshot.data!);
+            return Image.memory(snapshot.data!);
           } else if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),

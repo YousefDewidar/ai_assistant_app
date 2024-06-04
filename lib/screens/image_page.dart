@@ -65,7 +65,6 @@ class _GenImagePageState extends State<GenImagePage> {
                     heightContainer = 100;
                     heightRobot = 120;
                     heightSpace = 260;
-
                     setState(() {});
                   } else {
                     heightContainer = 300;

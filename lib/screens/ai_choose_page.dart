@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+
 import 'package:ai_assistant_app/screens/chat_page.dart';
 import 'package:ai_assistant_app/screens/image_page.dart';
 import 'package:ai_assistant_app/screens/translate/translate_page.dart';
@@ -11,7 +11,7 @@ class AiChoosePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 234, 234, 234),
+      backgroundColor:const Color.fromARGB(255, 234, 234, 234),
       appBar: AppBar(
         elevation: 1,
         shadowColor: Colors.grey,
@@ -35,8 +35,8 @@ class AiChoosePage extends StatelessWidget {
         //       ))
         // ],
       ),
-      body: Column(
-        children: const [
+      body:const Column(
+        children:  [
           AiTypeCard(
             imgSrc: 'assets/images/ai_hand_waving.json',
             nameAi: 'AI helper',

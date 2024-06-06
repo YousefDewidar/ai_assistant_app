@@ -9,10 +9,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        const SizedBox(
-          height: 80,
-        ),
         //  Text --> Welcome
         const Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -88,5 +86,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-// ignore: must_be_immutable
